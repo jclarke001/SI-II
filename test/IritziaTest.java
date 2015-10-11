@@ -13,6 +13,10 @@ import domain.Turist;
 import domain.RuralHouse;
 import exceptions.DB4oManagerCreationException;
 
+/**
+ * <code>IritziaTest</code> ezaugarri nagusiak
+ */
+
 public class IritziaTest extends TestCase {
 	private ApplicationFacadeInterface _facadeI;
 	private Turist _turist;
@@ -21,16 +25,37 @@ public class IritziaTest extends TestCase {
 		super(izena);
 	}
 	
+	/**
+	 * Hasieraketak adierazi.
+	 * 
+	 * Metodo hau testaren aurretik deitzen da.
+	 * @throws DB4oManagerCreationException 
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 * @throws IllegalAccessException 
+	 * @throws InstantiationException 
+	 * @throws RemoteException 
+	 */
+	
 	protected void setUp() throws RemoteException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, DB4oManagerCreationException {
 		_facadeI = new FacadeImplementation();
 		_facadeI.setDataAccess(new DataAccessLocal());
 		_turist = new Turist("Guiri", "Guirilog", "passGuiri", "guiri@gmail.com");
 	}
 	
+	/**
+	 * Test amaierak adierazi.
+	 * 
+	 * Metodo hau testa egikarituta deitzen da.
+	 * @throws RemoteException 
+	 */
 	protected void tearDown() throws RemoteException {
 		_facadeI.close();
 	}
 	
+	/**
+	 * Testeatu: turistaren datuak.
+	 */
 	public void testTurist(){
 
 		String tname = _turist.getName();
@@ -53,6 +78,11 @@ public class IritziaTest extends TestCase {
 		
 	}
 	
+	/**
+	 * Testeatu: ea iruzkinak parametroak errespetatzen dituen.
+	 * @throws Exception 
+	 * @throws RemoteException 
+	 */
 	public void testSaveComment() throws RemoteException {
 		
 		_facadeI.saveComment("BetiGoxo", _turist.getName(), "I did not like the place");
@@ -76,6 +106,9 @@ public class IritziaTest extends TestCase {
 		return suite;
 	}
 	
+	/**
+	 * Main metodo nagusia.
+	 */
 	public static void main(String args[]) {
 		junit.textui.TestRunner.run(suite());
 	}
