@@ -90,7 +90,7 @@ public class ErregistratuTest extends TestCase {
 	public void testErregistratuJabea() throws RemoteException, Exception {
 		_facadeI = new FacadeImplementation();
 		_facadeI.setDataAccess(new DataAccessLocal("initialize"));
-		//_owner2 = new Owner("Alfredo","AlfredoLog12", "passAlfredo","ESA1234-456789-7894261-41521322", "987456321", "alfedhitchcock123@gmail.com");
+		_owner2 = new Owner("Alfredo","AlfredoLog12", "passAlfredo","ESA1234-456789-7894261-41521322", "987456321", "alfedhitchcock123@gmail.com");
 		
 		boolean erregistratuDa =_facadeI.erregistratuJabea(_owner2.getName(), _owner2.getLogin(),
 				_owner2.getPassword(), _owner2.getPassword(), _owner2.getBankAccount(), _owner2.getTlfNumber(), _owner2.getEmail());
@@ -104,7 +104,7 @@ public class ErregistratuTest extends TestCase {
 	public void testErregistratuJabeaExisititzenDa() throws RemoteException, InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException, DB4oManagerCreationException{
 		_facadeI = new FacadeImplementation();
 		_facadeI.setDataAccess(new DataAccessLocal("open"));
-		//_owner2 = new Owner("Alfredo","AlfredoLog12", "passAlfredo","ESA1234-456789-7894261-41521322", "987456321", "alfedhitchcock123@gmail.com");
+		_owner2 = new Owner("Alfredo","AlfredoLog12", "passAlfredo","ESA1234-456789-7894261-41521322", "987456321", "alfedhitchcock123@gmail.com");
 		
 		boolean erregistratuDa =_facadeI.erregistratuJabea(_owner2.getName(), _owner2.getLogin(),
 				_owner2.getPassword(), _owner2.getPassword(), _owner2.getBankAccount(), _owner2.getTlfNumber(), _owner2.getEmail());
